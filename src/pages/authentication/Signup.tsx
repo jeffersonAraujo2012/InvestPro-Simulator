@@ -1,27 +1,27 @@
 import LogoWithText from "../../components/authenticatePages/LogoWithText";
 import FooterLink from "../../components/authenticatePages/FooterLink";
-import SigninForm from "./SigninForm";
 import { w } from "windstitch";
 import AsideHeader from "../../components/authenticatePages/AsideHeader";
 import AsideText from "../../components/authenticatePages/AsideText";
+import SignupForm from "./SignupForm";
 
-export default function Signin() {
+export default function Signup() {
   return (
     <div className="flex bg-signin bg-cover w-full h-screen">
       <Aside>
-        <AsideHeader text="Para que se arriscar?" />
-        <AsideText text="Simule gratuitamente suas estratégias de investimento" />
+        <AsideHeader text="Valide suas técnicas" />
+        <AsideText text="Teste em um ambiente seguro suas estratégias de investimento" />
       </Aside>
 
       <Main>
         <LogoWithText />
 
-        <SigninForm />
+        <SignupForm />
 
         <FooterLink
-          description="Não tem uma conta ainda? "
-          textLink="Cadastre-se de graça"
-          internalLink="/sign-up"
+          description="Já tem uma conta? "
+          textLink="Ir para login"
+          internalLink="/"
         />
       </Main>
     </div>
