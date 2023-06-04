@@ -1,17 +1,15 @@
-import "./App.css";
-
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
+import Signin from "./pages/authentication/Signin";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={'<div>oi<div/>'} />
+        <Route path="/" element={<Signin />} />
       </Routes>
     </Router>
   );
