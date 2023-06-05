@@ -2,24 +2,41 @@ import { Button, styled } from "@mui/material";
 import DescriptionAuthForm from "../../components/form/DescriptionAuthForm";
 import TextFieldForm from "../../components/form/TextFieldForm";
 import TitleAuthForm from "../../components/form/TitleAuthForm";
-import { FormEvent, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import api from "../../api";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../../contexts/UserProvider";
 
 export default function SigninForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [_, setUserData] = useContext(UserContext);
 
   async function login(e: FormEvent) {
     e.preventDefault();
 
     try {
-      const signinResult = await api.post("/auth/sign-in", {
-        email,
-        password,
-      });
+      const signinResult = await toast.promise(
+        api.post("/auth/sign-in", {
+          email,
+          password,
+        }),
+        {
+          pending: "Entrando...",
+          success: "Bem-vindo!",
+          error: "Alguma coisa deu errado.",
+        }
+      );
+
       const userData = signinResult.data;
-      console.log(userData);
-    } catch (error) {}
+      setUserData(userData);
+
+      navigate("/dashboard");
+    } catch (error) {
+      //console.log(error);
+    }
   }
 
   return (
