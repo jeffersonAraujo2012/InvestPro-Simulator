@@ -27,7 +27,7 @@ export default function Dashboard() {
       <SideMenu />
 
       <div className="w-full h-full">
-        <Header />
+        <Header title="Meus Investimentos"/>
 
         <main className="w-full h-full pt-[6.625rem] pb-4 px-8 bg-[#F8F9FF] overflow-scroll">
           <section className="resumo flex [&>div:first-child]:mr-8">

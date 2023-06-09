@@ -1,9 +1,13 @@
 import { w } from "windstitch";
 
-export default function Header() {
+interface IHeader {
+  title: string;
+}
+
+export default function Header({title}: IHeader) {
   return (
     <HeaderStyle>
-      <h1>Meus investimentos</h1>
+      <h1>{title}</h1>
     </HeaderStyle>
   );
 }
