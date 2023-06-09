@@ -1,4 +1,4 @@
-import LogoWithText from "../../components/authenticatePages/LogoWithText";
+import LogoWithText from "../../components/LogoWithText";
 import FooterLink from "../../components/authenticatePages/FooterLink";
 import { w } from "windstitch";
 import AsideHeader from "../../components/authenticatePages/AsideHeader";

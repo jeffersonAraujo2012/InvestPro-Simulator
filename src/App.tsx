@@ -7,9 +7,10 @@ import {
 import Signin from "./pages/authentication/Signin";
 import Signup from "./pages/authentication/Signup";
 import { ToastContainer } from "react-toastify";
-import UserContext, { UserProvider } from "./contexts/UserProvider";
-import { ReactNode, useContext } from "react";
+import { UserProvider } from "./contexts/UserProvider";
+import { ReactNode } from "react";
 import useToken from "./hooks/useToken";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -19,7 +20,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
-          <Route path="/dashboard" element={<AuthRouter>dashboard</AuthRouter>} />
+          <Route
+            path="/dashboard"
+            element={
+              <AuthRouter>
+                <Dashboard />
+              </AuthRouter>
+            }
+          />
         </Routes>
       </Router>
     </UserProvider>
