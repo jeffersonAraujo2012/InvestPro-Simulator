@@ -69,6 +69,7 @@ export default function CustomDoughnut() {
           },
         ],
       },
+      matrixStockQuantity,
       tickets,
     };
   }
@@ -82,27 +83,23 @@ export default function CustomDoughnut() {
       </div>
 
       <div className="flex-[2_2_0%] ml-6">
-        {generateGraphData().tickets.map((ticket, index) => {
+        {generateGraphData().matrixStockQuantity.map((stockQuantity, index) => {
           return (
             <p
               className="flex items-center justify-between font-['Manrope'] text-xl font-medium cursor-pointer h-[1.75rem] mb-2 hover:font-bold"
-              key={ticket}
+              key={stockQuantity[0]}
             >
               <span className="flex items-center h-full">
                 <span
                   className={`inline-block w-6 h-full mr-2`}
                   style={{ backgroundColor: bgColor[index] }}
                 />
-                {ticket}
+                {stockQuantity[0]}
               </span>
 
               <span className="flex items-center justify-between h-full w-32">
                 <span>R$</span>
-                {" " +
-                  (
-                    stocksData[ticket].regularMarketPrice *
-                    myStocks[index].quantity
-                  ).toFixed(2)}
+                {" " + stockQuantity[1].toFixed(2)}
               </span>
             </p>
           );
