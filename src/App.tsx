@@ -11,26 +11,38 @@ import { UserProvider } from "./contexts/UserProvider";
 import { ReactNode } from "react";
 import useToken from "./hooks/useToken";
 import Dashboard from "./pages/dashboard";
+import Invest from "./pages/invest";
+import { StockGraphProvider } from "./contexts/StockGraphProvider";
 
 function App() {
   return (
-    <UserProvider>
-      <ToastContainer />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Signin />} />
-          <Route path="/sign-up" element={<Signup />} />
-          <Route
-            path="/dashboard"
-            element={
-              <AuthRouter>
-                <Dashboard />
-              </AuthRouter>
-            }
-          />
-        </Routes>
-      </Router>
-    </UserProvider>
+    <StockGraphProvider>
+      <UserProvider>
+        <ToastContainer />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Signin />} />
+            <Route path="/sign-up" element={<Signup />} />
+            <Route
+              path="/dashboard"
+              element={
+                <AuthRouter>
+                  <Dashboard />
+                </AuthRouter>
+              }
+            />
+            <Route
+              path="/invest"
+              element={
+                <AuthRouter>
+                  <Invest />
+                </AuthRouter>
+              }
+            />
+          </Routes>
+        </Router>
+      </UserProvider>
+    </StockGraphProvider>
   );
 }
 
