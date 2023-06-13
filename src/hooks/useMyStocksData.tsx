@@ -1,14 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useMyStocks, { MyStockProps } from "./useMyStocks";
+import { StockDataProps } from "../protocols";
 
 type MyStockDataProps = {
-  [key: string]: {
-    logourl: string;
-    longName: string;
-    symbol: string;
-    regularMarketPrice: number;
-  };
+  [key: string]: StockDataProps;
 };
 
 type MyStockDataHookReturn = [
@@ -44,5 +40,5 @@ export default function useMyStocksData(): MyStockDataHookReturn {
     });
   }, []);
 
-  return [myStocks ,myStocksData, setMyStocksData];
+  return [myStocks, myStocksData, setMyStocksData];
 }
