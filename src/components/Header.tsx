@@ -17,14 +17,16 @@ const HeaderStyle = w.header(`
   
   flex
   items-center
+  justify-between
 
-  w-full
   h-[5.625rem] 
   pl-14
+  header-full-width
   
-  bg-white 
+  bg-white
   border-b-[1px] 
   border-b-[#DADADA]
+  z-10
 
   [&>h1]:font-['Manrope']
   [&>h1]:font-bold

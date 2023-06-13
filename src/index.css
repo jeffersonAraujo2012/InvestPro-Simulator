@@ -22,3 +22,7 @@
   backdrop-filter: blur(50px); /* Aplicando o desfoque no pseudoelemento */
   z-index: -1;
 }
+
+.header-full-width {
+  width: calc(100% - 17rem);
+}
