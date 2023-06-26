@@ -18,9 +18,10 @@ export default function StockGraph() {
   const { selectedRange } = useContext(StockGraphContext);
 
   useEffect(() => {
-    console.log(selectedRange);
+    const isBigRanger = selectedRange === '2y' || selectedRange === '5y' || selectedRange === '10y'
+    const interval = isBigRanger ? '5d' : '1d';
     const stockDataRequest = axios.get(
-      `https://brapi.dev/api/quote/${selectedStock}?range=${selectedRange}&interval=1d&fundamental=true`
+      `https://brapi.dev/api/quote/${selectedStock}?range=${selectedRange}&interval=${interval}&fundamental=true`
     );
     stockDataRequest.then((result: AxiosResponse<StockDataResponse>) => {
       setSelectedStockData(result.data.results[0]);

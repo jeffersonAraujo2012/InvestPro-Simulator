@@ -19,7 +19,7 @@ export default function StockGraphHeader({ stockData }: IStockGraphHeader) {
 
       <div className="flex flex-col items-end ml-4">
         <p className="font-bold text-[#1C1F37] text-3xl">
-          R${" " + stockData.regularMarketPrice}
+          R${" " + stockData.regularMarketPrice.toFixed(2)}
         </p>
         <p className="text-[#7A7A7A] text-xl">
           Última atualização: {new Date().toLocaleTimeString()}

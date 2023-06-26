@@ -7,14 +7,15 @@ export default function StockGraphArea() {
 
   function generateDateArray() {
     return selectedStockData?.historicalDataPrice.map((datePrice) => {
-      return new Date(datePrice.date * 1000).toLocaleDateString();
-    });
+      if (datePrice.close !== null)
+        return new Date(datePrice.date * 1000).toLocaleDateString();
+    }) as (number | undefined)[];
   }
 
-  function generateSerieArray() {
+  function generateSerieArray(){
     return selectedStockData?.historicalDataPrice.map((datePrice) => {
-      return Number(datePrice.close.toFixed(2));
-    });
+      if (datePrice.close !== null) return Number(datePrice.close.toFixed(2));
+    }) as (number | undefined)[];
   }
 
   function generateOptionGraph() {
@@ -23,7 +24,7 @@ export default function StockGraphArea() {
         id: "basic-bar",
       },
       xaxis: {
-        categories: generateDateArray(),
+        categories: generateDateArray().filter(data => {return !!data}),
         labels: {
           rotate: -45,
           rotateAlways: true,
@@ -37,7 +38,7 @@ export default function StockGraphArea() {
     return [
       {
         name: selectedStockData?.symbol,
-        data: generateSerieArray() as number[],
+        data: generateSerieArray().filter(data => {return !!data}) as number[],
       },
     ];
   }
