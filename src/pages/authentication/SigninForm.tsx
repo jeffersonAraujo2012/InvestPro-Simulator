@@ -73,6 +73,7 @@ export default function SigninForm() {
         className="!h-[3.75rem] !text-[1.25rem]"
         size="large"
         variant="outlined"
+        onClick={() => navigate('/sign-up')}
       >
         Registrar
       </RegisterButton>
